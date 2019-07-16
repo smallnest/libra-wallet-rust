@@ -7,9 +7,6 @@ edition = "2018"
 [dependencies]
 rocket = { git = "https://github.com/SergioBenitez/Rocket.git"}
 rocket_contrib = { git = "https://github.com/SergioBenitez/Rocket.git", default-features = false, features = ["serve","tera_templates"]}
-hex = "0.3"
-rand = "0.6.5"
-rand_chacha = "0.1.1"
-rand_core = "0.4.0"
+log = "0.4.7"
 libra_wallet = { git = "https://github.com/libra/libra"}
 libra_client = { git = "https://github.com/libra/libra", package = "client"}

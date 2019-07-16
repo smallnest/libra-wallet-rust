@@ -1,17 +1,6 @@
 {% extends "base" %}
 
 {% block content %}
-    {% if msg %}
-        <div class="row">
-            <div class="column column-20"></div>
-            <div class="column column-60">
-                <div class="msg">
-                    {{msg}}
-                </div>
-            </div>
-            <div class="column column-20"></div>
-        </div>
-    {% endif %}
     <div class="hero">
             <h2>Current Balance</h2>
             <h3>{{balance}} <b>libra</b></h3>

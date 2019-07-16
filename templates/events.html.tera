@@ -1,7 +1,7 @@
 {% extends "base" %}
 
 {% block content %}
-        <p><b>Account</b> {{addr}} [TODO] </p>
+        <p><b>Account</b> {{addr}} </p>
         <p style="color: red"><b>[TODO]</b> not implemented</p>
         <table>
             <thead>
