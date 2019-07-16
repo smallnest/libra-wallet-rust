@@ -1,0 +1,30 @@
+{% extends "base" %}
+
+{% block content %}
+        <p><b>Account</b> {{addr}} [TODO] </p>
+        <p style="color: red"><b>[TODO]</b> not implemented</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>From</th>
+                    <th>To</th>
+                    <th>Amount</th>
+                    <th>Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+{% endblock content %} 
