@@ -5,11 +5,20 @@ extern crate rocket;
 
 mod routes;
 
+use rocket::config::{Config, Environment, LoggingLevel};
 use rocket_contrib::serve::StaticFiles;
 use rocket_contrib::templates::Template;
 
 fn main() {
-    rocket::ignite()
+    let config = Config::build(Environment::Staging)
+        .environment(Environment::Production)
+        .address("0.0.0.0")
+        .port(8080)
+        .log_level(LoggingLevel::Critical)
+        .finalize()
+        .unwrap();
+
+    rocket::custom(config)
         .attach(Template::fairing())
         .mount("/css", StaticFiles::from("./assets/css"))
         .mount("/js", StaticFiles::from("./assets/js"))

@@ -1,7 +1,7 @@
 #![allow(non_snake_case)]
 
 use libra_client::client_proxy::ClientProxy;
-use log::error;
+use log::{error, info};
 use rocket::request::Form;
 use rocket::response::Redirect;
 use rocket_contrib::templates::Template;
@@ -48,9 +48,18 @@ pub fn events() -> Template {
         return Template::render("err", &context);
     }
 
-    let client_proxy = get_proxy_result.unwrap();
+    let mut client_proxy = get_proxy_result.unwrap();
     let addr = client_proxy.accounts.get(0).unwrap().address.to_string();
     context.insert("addr".to_string(), addr.to_string());
+
+    let params = ["query", "0", "received", "1", "true", "100"];
+    let events = client_proxy
+        .get_events_by_account_and_type(&params)
+        .unwrap()
+        .0;
+    for event in &events {
+        info!("{:?}", event)
+    }
     Template::render("events", context)
 }
 
